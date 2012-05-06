@@ -8,9 +8,9 @@ set -o errexit
 #set -o xtrace
 
 # Configurations
-BOX="ubuntu-precise-64"
-ISO_URL="http://releases.ubuntu.com/precise/ubuntu-12.04-alternate-amd64.iso"
-ISO_MD5="9fcc322536575dda5879c279f0b142d7"
+BOX="ubuntu-precise-32"
+ISO_URL="http://releases.ubuntu.com/precise/ubuntu-12.04-alternate-i386.iso"
+ISO_MD5="bcee4c03b704a9b62988505b7d8f3069"
 
 # location, location, location
 FOLDER_BASE=`pwd`
@@ -105,7 +105,7 @@ echo "Creating VM Box..."
 if ! VBoxManage showvminfo "${BOX}" >/dev/null 2>/dev/null; then
   VBoxManage createvm \
     --name "${BOX}" \
-    --ostype Ubuntu_64 \
+    --ostype Ubuntu \
     --register \
     --basefolder "${FOLDER_VBOX}"
 
