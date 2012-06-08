@@ -22,9 +22,13 @@ mkisofs, install [homebrew](http://mxcl.github.com/homebrew/), then:
 	$ tar --version
 	bsdtar 2.8.3 - libarchive 2.8.3
 
-It just won't extract the iso file. Instead of creating a workarround in the build file I opted to solve the problem.
+It just won't extract the iso file. Instead of creating a workarround in the 
+build file I opted to solve the problem.
 
-Libarchive has been updated to 3.0.4. homebrew doesn't support it directly, because its duplicating os behavior. So I created my own updated version of libarchive for 3.0.4. and submitted a pull request to the adamv/homebrew-dupes repository (which accepts duplicates). So:
+Libarchive has been updated to 3.0.4. homebrew doesn't support it directly, 
+because its duplicating os behavior.So I updated the formula of `libarchive` to
+ `3.0.4` and submitted a pull request to the `adamv/homebrew-dupes` repository 
+ (which accepts duplicates). So:
 
 	$ brew install https://raw.github.com/oschrenk/homebrew-dupes/edbc2b464d0bf4420508297418481178299f420a/libarchive.rb
 	$ /usr/local/bin/bsdtar --version
@@ -32,6 +36,6 @@ Libarchive has been updated to 3.0.4. homebrew doesn't support it directly, beca
 	$ /usr/local/bin/bsdtar -xvf ubuntu-12.04-alternate-i386.iso 
 	sudo rm /usr/bin/tar
 	cd /usr/bin
-	sudo n -s /usr/local/bin/bsdtar tar
+	sudo ln -s /usr/local/bin/bsdtar tar
 
 Every day a new bug to squash, a new yak to shave
